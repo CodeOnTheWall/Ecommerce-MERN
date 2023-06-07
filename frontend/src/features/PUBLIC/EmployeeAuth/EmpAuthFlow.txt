@@ -1,0 +1,10 @@
+User logs in via login mutation func inside Login component
+this login mutation func sends username and password to authApiSlice as credentials
+its the authApiSlice since we have to interact with backend api to receive the aT from route /authApiSlice   
+
+SEE authFlow inside backend authController 
+
+now we get the aT back from backend authController, and can set the state with that aT
+from Login component, we dispatch aT to the setCredentials func inside authSlice 
+and authSlice because this info is only needed on front end now, and authSlice will
+set the state with that aT

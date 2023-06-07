@@ -1,0 +1,28 @@
+LOGIN - /auth - POST
+
+from front end authApiSlice login mutation action/func, we receive username and 
+password, which is auto put inside (req.body) via express json parser (express.json)
+this parser parses the json sent into a js object put inside req.body
+
+this info 'lands' in the route /auth
+the authController 'handles' this incoming data that lands in routes/auth
+
+we destructure the username and password from req.body, since on the front end authApiSlice,
+this login mutation func is a get req, hence we receive the username and password from req.body
+
+if credentials check out via querying the mongodb db with the info
+from req.body (verifying pw and username), we send back to client app a aT and rT
+
+both aT and rT are jwt's - jason web tokens
+aT is stored in memory, i.e. in a variable in redux, and is wiped every refresh
+aT is also not seen in browser, only in memory
+rT is stored in a safe cookie that can be seen in browser, and will always
+be sent to server on subsequent requests automatically, if the req is sent
+to the same domain that set the cookie. This cookie carries information
+about user, and can also be sent to get another aT if aT is expired,
+assuming the rT isnt expired as well.
+
+LOGOUT - /auth/logout - POST
+
+because of the middleware: app.use(cookieParser());
+

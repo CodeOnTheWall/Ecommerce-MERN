@@ -1,0 +1,8 @@
+In the Redux dev tools, the "api/config/middlewareregistered" entry refers to the process
+of registering middleware with the Redux store. Middleware is a way to intercept and
+modify actions before they reach the store's reducer, and can be used to perform tasks
+such as logging, handling asynchronous actions, or routing. When middleware is registered
+with the store, it will be notified of all actions dispatched to the store and will have
+the opportunity to modify or cancel the actions before they reach the reducer. 
+This entry in the dev tools is a way to see which middleware has been registered with 
+the store and in what order.
